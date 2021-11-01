@@ -24,22 +24,22 @@ int main(int argc, char *argv[])
    {
       
       imprimir_prompt();
-      leer_linea_ordenes(buf);
+      leer_linea_ordenes(buf); //almacena ordenes de la entrada estandar como cadena de caracteres
       
    
-      if (!strcmp(buf, "exit"))
+      if (!strcmp(buf, "exit")) //compara si orden de la entrada estantandar es "exit"
       { 
-         exit(0);
+         exit(0); //sale del programa
       }
       
-      else if (es_ord_interna(buf))
+      else if (es_ord_interna(buf)) //si orden de entrada no es exit y es orden interna
       {
       
-         ejecutar_ord_interna(buf);
+         ejecutar_ord_interna(buf); //ejecuta orden interna
          //printf("Interna\n");
       }
       
-      else
+      else //si es orden externa
       {
          printf("%s: Orden externa.\n", buf);
       }
