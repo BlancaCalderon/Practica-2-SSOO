@@ -61,7 +61,6 @@ int main(int argc, char *argv[])
 	 while(token!=NULL) {		//pasa por el resto de tokens hasta terminar con la orden
 		ejecutar_linea_ordenes(token);		//llama a función con cada orden separada
 		token=strtok(NULL,s);			//siguiente token
-		printf("%s: Orden externa.\n", token);
 	}
       }
 	   
