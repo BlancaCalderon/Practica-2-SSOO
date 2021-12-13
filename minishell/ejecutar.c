@@ -25,8 +25,9 @@ pid_t ejecutar_orden(const char *orden, int *pbackgr)
 		exit(EXIT_FAILURE);
 	}
 	if(pid>0) {	//proceso padre
-		return(pid);			//devuelte pid del proceso hijo	
 		free_argumentos(args);		//libera memoria dinámica
+		return(pid);			//devuelte pid del proceso hijo	
+		
 	}
 	else {		//proceso hijo
 		execvp(args[0], args);
