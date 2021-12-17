@@ -29,15 +29,12 @@ void leer_linea_ordenes(char *buf)
     
    memset(buf, 0, sizeof(BUFSIZ));
 
-   
    if (fgets(buf, BUFSIZ-1, stdin) == NULL) /* fgets almacena la orden leída introduciendo también el carácter de fin de línea */
    { 
-      printf("Prueba");
       buf[0] = '\0';
       return;
    }
 
-   
    eliminar_salto_linea(buf);  
 }
 
