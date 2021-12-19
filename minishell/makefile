@@ -2,7 +2,7 @@ CC= gcc
 CFLAGS=-g -Wall
 
 minishell: minishell.o ejecutar.o entrada_minishell.o libmemoria.o redirecciones.o libshell.a
-	$(CC) $(CFLAGS) -c minishell.o libshell.a entrada_minishell.o ejecutar.o libmemoria.o redirecciones.o -L./-lshell -o minishell
+	$(CC) $(CFLAGS)  minishell.o libshell.a entrada_minishell.o ejecutar.o libmemoria.o redirecciones.o -L./-lshell -o minishell
 
 libshell.a: parser.o internas.o
 	ar -rs libshell.a parser.o internas.o
