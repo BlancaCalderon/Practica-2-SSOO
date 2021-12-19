@@ -24,5 +24,5 @@ entrada_minishell.o: entrada_minishell.c entrada_minishell.h
 
 .PHONY: clean
 clean:
-	rm -f minishell.o ejecutar.o entrada_minishell.o libmemoria.o redirecciones.o
+	rm -f minishell.o ejecutar.o entrada_minishell.o libmemoria.o redirecciones.o minishell
 
