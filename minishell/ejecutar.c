@@ -27,8 +27,8 @@ pid_t ejecutar_orden(const char *orden, int *pbackgr)
    		redirec_entrada(args, indice_ent, &entrada);	//Abre el archivo que acompaña a la redirección de entrada la cual se encuentra en args y guarda en entradas el descriptor de archivo
    		free(args[indice_ent]);				//libera zona de memoria de dónde se encuentra redirección
    		free(args[indice_ent+1]);			//libera zona de memoria del archivo que acompaña a redirección de entrada
-   		args[indice_ent] = '\0';
-   		args[indice_ent+1] = '\0';
+   		args[indice_ent] = '\0';			//indice que indica posicón de la redirección de entrada apunta a \0
+   		args[indice_ent+1] = '\0';			//indice que localiza archivo que va con redirección de entrada es ahora \0
    	}
    	
    	if (indice_sal != -1)					//si hay redirección de salida
@@ -36,8 +36,8 @@ pid_t ejecutar_orden(const char *orden, int *pbackgr)
    		redirec_salida(args, indice_sal, &salida);	//abre archivo que acompaña a la redirección de salida(localizada en args) y guarda descriptor del archivo en salida
    		free(args[indice_sal]);				//libera zona de memoria de redirección de salida
    		free(args[indice_sal+1]);			//libera zona de memoria de archivo que acompaña a la redirección de salida
-   		args[indice_sal] = '\0';
-   		args[indice_sal+1] = '\0';
+   		args[indice_sal] = '\0';			//hace que indice de redirección de salida sea \0
+   		args[indice_sal+1] = '\0';			//indice que localiza archivo que va con redirección de salida es ahora \0
    	}
    	
    	pid = fork();							//crea proceso hijo
