@@ -18,7 +18,7 @@ void eliminar_salto_linea(char *cad)
    longitud = strlen(cad);                 //Longitud de la orden leída(cad es una cadena de caracteres con la orden leída.)
 
    for(i = longitud-1; i >= 0; i--)       //Bucle para buscar el carácter de final de línea introducido por fgets
-      if (cad[i] == '\n')         
+      if (cad[i] == '\n')                 //si caracter introducido es salto de línea
       {
           cad[i] = 0;                     //sustituye por '\0' para indicar el final de orden
           break;
