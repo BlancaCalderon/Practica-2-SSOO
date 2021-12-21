@@ -1,28 +1,33 @@
 #include <stdlib.h>
+
 #include "libmemoria.h"
 
-//Función para liberar espacio de memoria de args
+/* Función para liberar espacio de memoria args */
 void free_argumentos(char **args)
 {
    int i = 0;
 
-   while(args[i])          //Mientras existe argumento
-      free(args[i++]);     //Libera zona de memoria que ocupa siguiente argumento
-   free(args);             //Libera espacio de memoria qeu ocupa el argumento
+	/* Liberamos uno a uno los contenidos de args */
+	/* y finalmente, eliminamos args					 */
+   while(args[i])
+      free(args[i++]);
+   free(args);
 }
 
-//Función para liberar la zona de memoria de las ordenes introducidas usando tubería
+/* Función para liberar de memoria las órdenes separadas por tuberías */
 void free_ordenes_pipes(char **ordenes, int **fds, int nordenes)
 {
    int i = 0;
 
-   for (i = 0; i < nordenes; i++)   //Mientras i sea menor que el número de órdenes introducidas
+   for (i = 0; i < nordenes; i++)
    {
-      free(ordenes[i]);             //Libera espacio de memoria de la orden i
-      if (i < (nordenes - 1))       //Si es menor que el número de órdenes introducidas menos 1
-         free(fds[i]);              //Libera zona de memoria de fds i
+   	/* Eliminamos las órdenes una a una y las tuberías que las separan */
+      free(ordenes[i]);
+      if (i < (nordenes - 1))
+         free(fds[i]);
    }
-
-   free(ordenes);                   //Libera espacio de memoria de las ordenes
-   free(fds);                       //Libera zona de memoria de fds
+	
+	/* Liberamos de memoria el las órdenes y los descriptores de archivo */
+   free(ordenes);
+   free(fds);
 }
