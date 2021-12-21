@@ -215,7 +215,7 @@ void ejecutar_linea_ordenes(const char *orden)
    	/* Si la función no corre en segundo plano y es el proceso padre, */
    	/* esperaremos a que finalice el proceso hijo						   */
    	
-		if ((!backgr) && pids[nordenes - 1]>0)		
+		if ((!backgr) && pids[nordenes - 1] > 0)		
 		{
 			waitpid(pids[nordenes - 1], NULL, 0);	
 		}
